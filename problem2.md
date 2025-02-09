@@ -102,3 +102,20 @@ FROM order_items
 JOIN orders ON order_items.order_id = orders.id
 JOIN customers ON orders.customer_id = customers.id
 WHERE customers.id = 1
+
+Update Stock Quantities from Order ID 1:
+
+UPDATE products
+SET stock_quantity = products.stock_quantity - order_items.quantity
+FROM order_items
+WHERE order_items.order_id = 1 AND order_items.product_id = products.id
+
+Delete Order and all associated Order Items:
+
+DELETE
+FROM order_items
+WHERE order_id = 2;
+
+DELETE
+FROM orders
+WHERE id = 2;
