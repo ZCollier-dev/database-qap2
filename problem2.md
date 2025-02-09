@@ -82,3 +82,23 @@ VALUES
 (5, 5, 1)
 
 Querying:
+
+Retrieve names and stock quantities of products:
+
+SELECT product_name, stock_quantity
+FROM products
+
+Retrieve product names and quantities of one order:
+
+SELECT products.product_name, order_items.quantity
+FROM order_items
+JOIN products ON products.id = order_items.product_id
+WHERE order_items.order_id = 2
+
+Retrieve orders by specific customer:
+
+SELECT customers.first_name || ' ' || customers.last_name AS customer_name, order_items.order_id, order_items.product_id, order_items.quantity
+FROM order_items
+JOIN orders ON order_items.order_id = orders.id
+JOIN customers ON orders.customer_id = customers.id
+WHERE customers.id = 1
