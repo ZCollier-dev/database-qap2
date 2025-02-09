@@ -111,3 +111,11 @@ FROM order_items
 WHERE order_items.order_id = 1 AND order_items.product_id = products.id
 
 Delete Order and all associated Order Items:
+
+DELETE
+FROM order_items
+WHERE order_id = 2;
+
+DELETE
+FROM orders
+WHERE id = 2;
